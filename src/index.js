@@ -95,3 +95,10 @@ showLocationByCity("Madrid");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", showCheckedCityTemp);
+
+function CloudsStatus(response) {
+  let descriptionElement = document.querySelector("description");
+  let humidityElement = document.querySelector("humidity");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+humidityElement.innerHTML = response.data.main.humidity;
+}
