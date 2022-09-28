@@ -1,0 +1,120 @@
+.weather-app {
+  max-width: 700px;
+  margin: 50px auto 10px;
+  box-shadow: 0 8px 16px rgba(33, 25, 53, 0.35);
+  border-radius: 700px;
+  color: #3d6596;
+  background-color: #ccd0f9;
+  padding: 80px 80px 80px;
+  font-family: "Bitter", serif;
+}
+.h1 {
+  font-size: 3em !important;
+  font-weight: bold !important;
+}
+.precipitation {
+  color: #eff1b9;
+  font-weight: normal;
+}
+.tempMinMax {
+  color: #eff1b9;
+  font-weight: normal;
+}
+.search-section {
+  margin-bottom: 20px;
+}
+.search-field:checked {
+  text-decoration: underline;
+}
+.city {
+  margin-bottom: 30px;
+}
+.city-current-updated {
+  margin-bottom: 30px;
+  font-size: 15px;
+  text-align: center;
+  color: #eff1b9;
+}
+.units {
+  font-size: 17px;
+  vertical-align: top;
+}
+.celsius,
+.fahrenheit {
+  text-decoration: none;
+}
+.img-icon {
+  max-width: 130px;
+  position: relative;
+  top: -10px;
+}
+
+li {
+  font-size: 16px;
+  line-height: none;
+  vertical-align: top;
+  color: #eff1b9;
+}
+.value-max,
+.value-min,
+.separator {
+  vertical-align: top;
+  line-height: 50px;
+  list-style: 50px;
+}
+
+.btn {
+  width: 80%;
+}
+.submit-input-container {
+  text-align: center;
+}
+
+.btn.btn-primary {
+  background-color: #79a4e7;
+  border: none;
+  color: #b9bef1;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 12px 12px 12px 12px;
+  margin-right: -22px;
+}
+.btn.btn-secondary {
+  background-color: #eff1b9;
+  border: none;
+  color: #b9bef1;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 12px 12px 12px 12px;
+  margin-left: -22px;
+}
+.btn.btn-primary:hover {
+  background-color: #eff1b9;
+}
+.btn.btn.btn-secondary:hover {
+  background-color: #79a4e7;
+}
+.forecast {
+  font-size: 16px;
+}
+.city-current-temperature {
+  font-size: 49px;
+}
+.img-forecast {
+  max-width: 50px;
+  max-height: 35px;
+  vertical-align: top;
+}
+.week-day {
+  margin-bottom: 15px;
+}
+p {
+  margin-bottom: 15px !important;
+}
+.footer {
+  text-align: center;
+  font-size: 14px;
+}
+body {
+  background-color: #758ae4;
+}
