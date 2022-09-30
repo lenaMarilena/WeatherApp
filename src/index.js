@@ -53,9 +53,14 @@ function showCurrentCityTemp(response) {
   let maxTemp = document.querySelector("#value-max");
   let minTemp = document.querySelector("#value-min");
   let h1 = document.querySelector("h1");
+  let iconeElement = document.querySelector("#icone");
   h1.innerHTML = currentCity;
   maxTemp.innerHTML = currentMaxTemp;
   minTemp.innerHTML = currentMinTemp;
+  iconeElement.setAttribute(
+    src,
+    'C:UsersПользовательDesktopWeatherAppimages\01d.png'
+  );
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
