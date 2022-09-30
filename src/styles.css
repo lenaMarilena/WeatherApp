@@ -301,7 +301,6 @@ body {
   opacity: 0.8;
 }
 
-/* More info block */
 .weather-more-info {
   margin: 0 auto;
   text-align: center;
@@ -332,7 +331,6 @@ body {
   margin-top: 1px;
 }
 
-/* Forecast for a week */
 .next-week-forecast {
   margin-top: 20px;
 }
@@ -357,7 +355,7 @@ body {
 
 .weather-card:hover {
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(248, 191, 229, 0.5);
 }
 
 .card-date {
