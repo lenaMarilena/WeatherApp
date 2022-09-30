@@ -1,4 +1,3 @@
-//loader
 const mask = document.querySelector(".mask");
 
 window.addEventListener("load", () => {
@@ -8,7 +7,7 @@ window.addEventListener("load", () => {
   }, 600);
 });
 
-//getting elements
+//Элементы
 const dateHeading = document.querySelector("#current-date");
 
 const searchForm = document.querySelector("#search-forecast");
@@ -33,13 +32,12 @@ const locationBtn = document.querySelector(".form-icon");
 //API key
 const apiKey = "62231151ce343c4d68652e1617efc22f";
 
-//creating global variables that will store the celsius Temp
 let celsiusTemp = null;
 let maxCelsTemp = null;
 let minCelsTemp = null;
 let feelsLikeTemp = null;
 
-//setting current date
+//устанавливаем текущую дату
 const setDate = () => {
   let date = new Date();
   const days = [
@@ -72,7 +70,7 @@ const setDate = () => {
 
 setDate();
 
-//function for converting date value from the api to normal state
+//конвертируем формат даты
 const formatDate = (timestamp) => {
   let date = new Date(timestamp * 1000);
   let day = date.getDay(); //we are getting value from 0 to 6
@@ -80,7 +78,7 @@ const formatDate = (timestamp) => {
   return days[day];
 };
 
-//function for displaying weather for week
+//погода на неделю
 const displayWeekWeather = (response) => {
   let dailyForecast = response.data.daily;
   const forecast = document.querySelector("#week-forecast");
@@ -121,7 +119,7 @@ const showWeekWeather = (coords) => {
     .then(displayWeekWeather);
 };
 
-//weather API integration
+//weather API интегрируем
 const displayWeather = (response) => {
   celsiusTemp = Math.round(response.data.main.temp);
   searchedCity.innerHTML = `${response.data.name}, ${response.data.sys.country}`;
@@ -133,11 +131,10 @@ const displayWeather = (response) => {
   maxTemp.innerHTML = `${maxCelsTemp}`;
   minTemp.innerHTML = `${minCelsTemp}`;
 
-  //changing icon
+  //меняем иконку погоды!
   let apiIcon = response.data.weather[0].icon;
   mainIcon.setAttribute("src", `images/icons/${apiIcon}.png`);
 
-  //more info block
   feelsLikeTemp = Math.round(response.data.main.feels_like);
   feelsLike.innerHTML = `${feelsLikeTemp}`;
   humidity.innerHTML = `${response.data.main.humidity}`;
@@ -148,7 +145,7 @@ const displayWeather = (response) => {
 };
 
 const searchData = (city) => {
-  //getting API key
+  //получаем ключ API
   axios
     .get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
@@ -158,7 +155,7 @@ const searchData = (city) => {
 
 searchData("Madrid");
 
-//geolocation processing
+//геолокация
 const showLocation = () => {
   let latitude;
   let longitude;
@@ -175,7 +172,6 @@ const showLocation = () => {
 
 locationBtn.addEventListener("click", showLocation);
 
-//unit conversion
 const toFahrenheit = (value) => {
   let res = Math.round((value * 9) / 5 + 32);
   return res;
@@ -193,7 +189,7 @@ const convertToFahr = () => {
   minTemp.innerHTML = `${toFahrenheit(minCelsTemp)}`;
   feelsLike.innerHTML = `${toFahrenheit(feelsLikeTemp)}`;
 
-  //calculations for weekly forecast values
+  //калькуляция прогноза на неделю
   let weeklyMin = document.querySelectorAll("#card-temp-low");
   weeklyMin.forEach((item) => {
     //grabbing a value to convert
@@ -203,16 +199,15 @@ const convertToFahr = () => {
 
   let weeklyMax = document.querySelectorAll("#card-temp-high");
   weeklyMax.forEach((item) => {
-    //grabbing a value to convert
     let minValue = item.innerHTML;
     item.innerHTML = `${toFahrenheit(minValue)}`;
   });
 
-  //removing and adding classes for buttons
+  //классы для кнопок добавить и удалить
   fahrenheit.classList.add("active");
   celsius.classList.remove("active");
 
-  //removing eventListener for fahrenehit to prevent multiple calculations and adding for celsius
+  //добавляем цельсий
   celsius.addEventListener("click", convertToCelsius);
   fahrenheit.removeEventListener("click", convertToFahr);
 };
@@ -223,7 +218,6 @@ const convertToCelsius = () => {
   minTemp.innerHTML = `${minCelsTemp}`;
   feelsLike.innerHTML = `${feelsLikeTemp}`;
 
-  //calculations for weekly forecast values
   let weeklyMin = document.querySelectorAll("#card-temp-low");
   weeklyMin.forEach((item) => {
     //grabbing a value to convert
@@ -238,20 +232,17 @@ const convertToCelsius = () => {
     item.innerHTML = `${toCelsius(minValue)}`;
   });
 
-  //removing and adding classes for buttons
   fahrenheit.classList.remove("active");
   celsius.classList.add("active");
 
-  //removing eventListener for celsius to prevent multiple calculations and adding for fahrenheit
   fahrenheit.addEventListener("click", convertToFahr);
   celsius.removeEventListener("click", convertToCelsius);
 };
 
-//adding listeners for units' buttons
 fahrenheit.addEventListener("click", convertToFahr);
 celsius.addEventListener("click", convertToCelsius);
 
-//working with search form
+//работаем над поиском
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const searchInput = document.querySelector(".form-input");
