@@ -56,6 +56,10 @@ function showCurrentCityTemp(response) {
   h1.innerHTML = currentCity;
   maxTemp.innerHTML = currentMaxTemp;
   minTemp.innerHTML = currentMinTemp;
+  let descriptionElement = document.querySelector("description");
+  let humidityElement = document.querySelector("humidity");
+  descriptionElement.innerHTML = response.data.weather[1].description;
+  humidityElement.innerHTML = response.data.main.humidity;
 }
 
 function showLocationByPosition(position) {
@@ -76,7 +80,7 @@ let currentButton = document.querySelector("#current-location");
 currentButton.addEventListener("click", getCurrentLocation);
 
 function showLocationByCity(cityName) {
-  let apiKey = "34ae1065362d42545661451bda2b8a1f";
+  let apiKey = "99b8f9330a1bfba3a85e523fd3c2e528";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let units = "metric";
   let apiUrlCity = `${apiEndpoint}?q=${cityName}&appid=${apiKey}&units=${units}`;
@@ -95,10 +99,3 @@ showLocationByCity("Madrid");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", showCheckedCityTemp);
-
-function CloudsStatus(response) {
-  let descriptionElement = document.querySelector("description");
-  let humidityElement = document.querySelector("humidity");
-  descriptionElement.innerHTML = response.data.weather[0].description;
-humidityElement.innerHTML = response.data.main.humidity;
-}
