@@ -35,6 +35,13 @@
   text-align: center;
   color: #eff1b9;
 }
+.now-status {
+  margin-bottom: 30px;
+  font-size: 15px;
+  text-align: center;
+  color: #eff1b9;
+  text-transform: capitalize;
+}
 .units {
   font-size: 17px;
   vertical-align: top;

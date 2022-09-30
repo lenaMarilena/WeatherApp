@@ -56,10 +56,14 @@ function showCurrentCityTemp(response) {
   h1.innerHTML = currentCity;
   maxTemp.innerHTML = currentMaxTemp;
   minTemp.innerHTML = currentMinTemp;
-  let descriptionElement = document.querySelector("description");
-  let humidityElement = document.querySelector("humidity");
-  descriptionElement.innerHTML = response.data.weather[1].description;
-  humidityElement.innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#humidity").innerHTML = Math.round(
+    response.data.main.humidity
+  );
+  document.querySelector("#now-status").innerHTML =
+    response.data.weather[0].description;
 }
 
 function showLocationByPosition(position) {
