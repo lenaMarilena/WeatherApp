@@ -93,7 +93,7 @@ const displayWeekWeather = (response) => {
                    dailyForecast[i].dt
                  )}</div>
                  <div class="card-image">
-                    <img src="img/icons/${
+                    <img src="images/icons/${
                       dailyForecast[i].weather[0].icon
                     }.png" alt="Sun, clouds and rain" width="50px" height="50px" />
                  </div>
@@ -135,7 +135,7 @@ const displayWeather = (response) => {
 
   //changing icon
   let apiIcon = response.data.weather[0].icon;
-  mainIcon.setAttribute("src", `img/icons/${apiIcon}.png`);
+  mainIcon.setAttribute("src", `images/icons/${apiIcon}.png`);
 
   //more info block
   feelsLikeTemp = Math.round(response.data.main.feels_like);
@@ -156,7 +156,7 @@ const searchData = (city) => {
     .then(displayWeather);
 };
 
-searchData("Chicago");
+searchData("Madrid");
 
 //geolocation processing
 const showLocation = () => {
